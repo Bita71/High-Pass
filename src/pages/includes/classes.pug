@@ -1,0 +1,35 @@
+section.classes#classes
+  .container.classes-container
+    h2.classes-title Мастер-классы
+    .classes-content
+      //- .classes-left
+      .classes-left-img
+      .classes-left-description
+        .classes-datetime
+          time.classes-datetime-date(datetime="2021-06-08") 8 июня
+          time.classes-datetime-time(datetime="15:00") 15:00
+        h3.classes-left-title Пленка для начинающих
+        p.classes-left-text Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: семантический разбор внешних противодействий, в своём классическом представлении.
+        a.classes-left-btn(href="#") Узнать больше
+      - var classesList = [{title:'Ретушь. Продвинутый уровень', dateFormat:'2021-06-09', date:'9 июня', time:'15:00', img:'1.jpg'},{title:'Портретная съемка. Свет',  dateFormat:'2021-06-10', date:'10 июня',  time:'16:00', img:'2.jpg'},{title:'Макросъемка. Проблемы и нюансы', dateFormat:'2021-06-11', date:'11 июня',  time:'16:00', img:'3.jpg'},{title:'Творческая ретушь для начинающих', dateFormat:'2021-06-13', date:'13 июня',  time:'18:00', img:'4.jpg'},]
+      - var classesImgPath = 'img/master-classes/';
+      - var classesPath1024 = classesImgPath + '1024/';
+      - var classesPath768 = classesImgPath + '768/';
+      - var classesPath320 =classesImgPath + '320/';
+      ul.classes-right
+        each el in classesList
+          li.classes-right-item
+            .classes-right-item-img
+              picture
+                source(srcset=classesPath320 + el.img media="(max-width: 500px)")
+                source(srcset=classesPath768 + el.img media="(max-width: 900px)")
+                source(srcset=classesPath1024 + el.img media="(max-width: 1200px)")
+                source(srcset=classesImgPath + el.img)
+                img(src=classesImgPath + el.img, alt=el.title)
+            .classes-right-item-content
+              .classes-datetime
+                time.classes-datetime-date(datetime= el.dateFormat)= el.date
+                time.classes-datetime-time(datetime= el.time)= el.time
+              a.classes-right-item-title(href="#")= el.title
+
+

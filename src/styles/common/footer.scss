@@ -1,0 +1,104 @@
+.footer {
+  color: $mainFontColor;
+  background-color: $extraColor;
+
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @include media("xl") {
+      grid-template-columns: 4fr 369px 3fr;
+    }
+
+    @include media("md") {
+      display: flex;
+    }
+
+    @include media("sm") {
+      flex-direction: column-reverse;
+      gap: 0;
+      padding: 0;
+    }
+  }
+
+  &-left {
+    @include media("sm") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #4a4a4a;
+    }
+  }
+
+  &-logo {
+    @extend .header-logo;
+    margin-right: 0;
+  }
+
+  &-decription {
+    font-family: $extraFont;
+    font-size: 14px;
+    line-height: 18px;
+    color: #e9e9e9;
+
+    @include media("sm") {
+      font-size: 10px;
+    }
+  }
+
+  &-blockquote {
+    justify-self: self-end;
+    margin: 0;
+    margin-right: 0;
+    margin-left: auto;
+
+    &-text {
+      color: $extraFontColor;
+    }
+    &-author {
+      margin-top: 2px;
+      font-style: normal;
+      color: #666;
+    }
+
+    @include media("md") {
+      display: none;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-self: self-end;
+
+    @include media("md") {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    @include media("sm") {
+      padding: 32px 20px;
+      margin-left: 0;
+    }
+
+    &-text {
+      margin-bottom: 7px;
+      color: $extraFontColor;
+
+      @include media("sm") {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &-networks {
+    @include networks;
+  }
+}

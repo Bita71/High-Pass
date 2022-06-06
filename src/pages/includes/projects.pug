@@ -1,0 +1,44 @@
+section.projects#projects
+  .container.projects-container
+    h2.projects-title Наши проекты
+    - var projects = [{hashtag:"пейзаж", img:"1.jpg", title:"Синтетически, смешаны с не уникальными данными до степени...", datetime:'2021-06-16', date:"16 июня", size:"small"}, {hashtag:"портрет", img:"2.jpg", title:"В своём стремлении улучшить опыт мы упускаем, что явные...", datetime:'2021-05-28', date:"28 мая", size:"small"}, {hashtag:"предмет", img:"3.jpg", title:"Равным образом, высокое качество позиционных...", datetime:'2021-05-14', date:"14 мая", size:"small"},{hashtag:"fuji", img:"4.jpg", title:"Cемантический разбор", description:"В рамках спецификации современных стандартов, интерактивные прототипы", datetime:'2021-04-09', date:"9 апреля", size:"big"},{hashtag:"проектзабвения", img:"5.jpg", title:"Забвение", description:"Играет важную роль в формировании глубокомысленных рассуждений", datetime:'2021-03-20', date:"20 марта",size:"big"},{hashtag:"ретушь", img:"6.jpg", title:"Как принято считать, многие известные личности и по сей день остаются уделом либералов...", datetime:'2021-03-09', date:"9 марта",size:"medium"},{hashtag:"портрет", img:"7.jpg", title:"С учётом сложившейся международной обстановки, новая модель организационной...", datetime:'2021-03-01', date:"1 марта",size:"medium"},{hashtag:"портрет",  img:"8.jpg", title:"Спорная точка зрения", description:"Ясность нашей позиции очевидна: убеждённость некоторых оппонентов", datetime:'2021-02-24', date:"24 февраля", size:"big"},{hashtag:"ретушь", img:"9.jpg", title:"Идейные соображения высшего порядка, а также убеждённость некоторых оппонентов...", datetime:'2021-02-20', date:"20 февраля",size:"medium"}, {hashtag:"портрет", img:"10.jpg", title:"Прежде всего, повышение уровня гражданского сознания говорит о возможностях приоритизации...", datetime:'2021-02-18', date:"18 февраля",size:"medium"},{hashtag:"пейзаж", img:"11.jpg", title:"Равным образом, сложившаяся структура организации...", datetime:'2021-02-15', date:"15 февраля", size:"small"},{hashtag:"предмет", img:"12.jpg", title:"Безусловно, реализация намеченных плановых заданий обеспечивает...", datetime:'2021-02-10', date:"10 февраля", size:"small"},{hashtag:"пейзаж", img:"13.jpg", title:"Безусловно, курс на социальный национальный...", datetime:'2021-02-07', date:"7 февраля", size:"small"}, {hashtag:"проектджаз",  img:"14.jpg", title:"Задания по разработке своевременного", description:"Повседневная практика показывает, что сложившаяся структура организации играет важную роль", datetime:'2021-02-02', date:"2 февраля",size:"big"}]
+    - var projectsPath = "img/projects/";
+    - var projectsPath320 = projectsPath + "320/";
+    - var projectsPath768 = projectsPath + "768/";
+    - var projectsPath1024 = projectsPath + "1024/";
+    ul.projects-works
+      each el in projects
+        if el.size == "big"
+          li.projects-works-item.projects-works-big
+            picture
+              source(srcset=projectsPath320 + el.img media="(max-width: 500px)")
+              source(srcset=projectsPath768 + el.img media="(max-width: 900px)")
+              source(srcset=projectsPath1024 + el.img media="(max-width: 1200px)")
+              source(srcset=projectsPath + el.img)
+              img(src=projectsPath + el.img, alt=el.hashtag)
+            .projects-works-hashtag= "#" + el.hashtag
+            .projects-works-big-content
+              time.projects-works-date.projects-works-date-big(datetime=el.datetime)= el.date
+              h3.projects-works-title-big= el.title
+              p.projects-works-description= el.description
+              a.projects-works-big-btn(href="#") О проекте
+        else
+          li.projects-works-item(class="projects-works-"+el.size)
+            .projects-works-hashtag= "#" + el.hashtag
+            picture
+              source(srcset=projectsPath320 + el.img media="(max-width: 500px)")
+              source(srcset=projectsPath768 + el.img media="(max-width: 900px)")
+              source(srcset=projectsPath1024 + el.img media="(max-width: 1200px)")
+              source(srcset=projectsPath + el.img)
+              img(src=projectsPath + el.img, alt=el.hashtag)
+            h3.projects-works-title= el.title
+            time.projects-works-date(datetime=el.datetime)= el.date
+    ul.projects-pages
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+.nav {
+  grid-area: nav;
+  width: 100%;
+
+  @include media("md") {
+    display: flex;
+    height: 100%;
+    padding: 0 30px;
+    background-color: #4a4a4a;
+  }
+
+  @include media("sm") {
+    align-items: center;
+    padding: 0;
+    padding-left: 21px;
+  }
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include media("sm") {
+      position: absolute;
+      display: none;
+      align-items: flex-start;
+      flex-direction: column;
+      top: 71px;
+      left: 0;
+      z-index: 1;
+      height: 541px;
+      padding: 14px 21px 36px;
+      background-color: $extraColor;
+      .open & {
+        display: flex;
+      }
+    }
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include media("md") {
+      width: 100%;
+    }
+
+    @include media("sm") {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &-item {
+      margin: 0 auto;
+
+      @include media("sm") {
+        margin: 0;
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+        @include media("md") {
+          margin-left: 0;
+          margin-right: auto;
+        }
+        @include media("sm") {
+          margin-right: 0;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+        @include media("md") {
+          margin-left: auto;
+          margin-right: 0;
+        }
+        @include media("sm") {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &-link {
+      padding: 0 5px;
+      line-height: 21px;
+      color: $mainFontColor;
+      @include transition(color, background-color);
+
+      @include media("md") {
+        padding: 0;
+      }
+
+      @include media("sm") {
+        font-size: 16px;
+      }
+
+      &:hover {
+        color: $hoverColor;
+      }
+
+      &:focus {
+        background-color: $focusColor;
+      }
+
+      &:active {
+        color: $activeColor;
+        background-color: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+section.contacts#contacts
+  .container.contacts-container
+    h2.contacts-title Контакты
+    .contacts-content
+      .contacts-map#map
+        .contacts-map-info#contactsInfoBlock
+          button.contacts-map-btn-close#contactsBtnClose
+          h3.contacts-map-title Студия “High pass”
+          address.contacts-map-address 107045, Москва, Даев переулок, дом 41, бизнес-центр «Даев Плаза», этаж 8, офис № 82
+            a.contacts-map-phone(href="tel:+749542423532") +7 (495) 42-423-532
+              svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+                use(xlink:href="img/sprite.svg#header--phone")
+      .contacts-form
+        h3.contacts-form-title Оставить заявку
+        p.contacts-form-text Оставьте ваши данные, указав в графе “Комментарий” желаемые время и дату съемки или другого мероприятия
+        label.contacts-form-label(for="name")
+          input.contacts-form-input(id="name" name="name" type="text" placeholder="Имя")
+          span.contacts-form-input-error Недопустимый формат
+        label.contacts-form-label(for="email")
+          input.contacts-form-input(id="email" name="email" type="email" placeholder="E-mail")
+          span.contacts-form-input-error Недопустимый формат
+        label.contacts-form-label.textarea(for="comment")
+          textarea.contacts-form-textarea(id="comment" name="comment" placeholder="Комментарий")
+        button.contacts-form-btn(type="submit" name="send") Отправить

@@ -1,0 +1,228 @@
+@mixin networks {
+  display: flex;
+  align-items: center;
+  &-item {
+    height: 30px;
+  }
+
+  &-item:not(:first-child) {
+    margin-left: 20px;
+
+    @include media("xl") {
+      margin-left: 21px;
+    }
+  }
+
+  &-link {
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #cacaca;
+      @include transition(fill);
+    }
+
+    &:hover svg {
+      fill: $hoverColor;
+    }
+
+    &:focus svg {
+      fill: $focusColor;
+    }
+
+    &:active svg {
+      fill: $activeColor;
+    }
+  }
+}
+
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+@mixin background-image(
+  $path,
+  $position: center,
+  $type: cover,
+  $backgroundColor: $extraFontColor
+) {
+  background: url($path), $backgroundColor;
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: $type;
+}
+
+@mixin btn {
+  border: 3px solid $mainColor;
+  display: inline-block;
+  padding: 12px 19px;
+  font-weight: 700;
+  color: $mainFontColor;
+  background-color: $mainColor;
+  cursor: pointer;
+  @include transition(background, border);
+
+  &:hover {
+    border-color: $focusColor;
+    background-color: $focusColor;
+  }
+  &:focus {
+    border-color: $activeColor;
+  }
+  &:active {
+    border-color: $activeColor;
+    background-color: $activeColor;
+  }
+
+  @include media("sm") {
+    padding: 9px 19px;
+  }
+}
+
+@mixin input {
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 16px;
+  @include transition(border);
+
+  @include media("sm") {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+
+  &::placeholder {
+    color: $extraFontColor;
+    @include transition(color);
+  }
+
+  &:hover::placeholder {
+    color: $mainColor;
+  }
+
+  &:focus {
+    border-color: $mainColor;
+  }
+
+  &:invalid {
+    border-color: $errorColor;
+  }
+
+  &:invalid + span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin label-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+@mixin input-error {
+  position: absolute;
+  top: 3px;
+  left: 23px;
+  opacity: 0;
+  font-size: 9px;
+  color: $errorColor;
+  transform: translateY(-14px);
+  @include transition(opacity, transform);
+}
+
+@mixin title {
+  font-family: $extraFont;
+  color: $extraColor;
+
+  @include media("sm") {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@mixin mainTitle {
+  @include title;
+  @include media("md") {
+    line-height: 31px;
+  }
+  @include media("sm") {
+    line-height: 23px;
+  }
+}
+
+@mixin phone {
+  position: relative;
+  padding-left: 19px;
+  padding-right: 5px;
+  font-size: 16px;
+  line-height: 21px;
+  color: $mainFontColor;
+  @include transition(color, background-color);
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    margin-right: 3px;
+    font-family: $extraFont;
+    fill: $mainFontColor;
+    opacity: 0.7;
+    @include transition(fill, opacity);
+  }
+
+  &:focus {
+    background-color: $focusColor;
+  }
+
+  &:hover {
+    color: $hoverColor;
+  }
+
+  &:hover svg {
+    fill: $hoverColor;
+  }
+
+  &:active {
+    color: $activeColor;
+    background-color: inherit;
+  }
+
+  &:active svg {
+    fill: $activeColor;
+  }
+}
+
+@mixin overflow($height) {
+  max-height: $height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin btnClose {
+  position: absolute;
+  display: block;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 3px;
+    width: 12px;
+    height: 1px;
+    background-color: #fff;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}

@@ -1,0 +1,18 @@
+footer.footer
+  .container.footer-container
+    .footer-left
+      a.footer-logo(href="/")
+        img(src="img/Logo.svg" alt="High Pass")
+      p.footer-decription Фотостудия High pass® 2018-2020
+    blockquote.footer-blockquote
+      p.footer-blockquote-text Которая из моих фотографий самая любимая?
+      p.footer-blockquote-text Та, которую я собираюсь снять завтра.
+      cite.footer-blockquote-author &#169; Имоджен Каннингем
+    .footer-right
+      p.footer-right-text Больше интересного:
+      ul.footer-networks
+        each val in ['instagram','fb','vk']
+          li.footer-networks-item
+            a.footer-networks-link(href="#")
+              svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+                use(xlink:href="img/sprite.svg#" + val)

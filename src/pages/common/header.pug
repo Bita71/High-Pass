@@ -1,0 +1,31 @@
+- var nav = [{title:'О студии', id:'about'}, {title:'Наши проекты', id:'projects'}, {title:'Услуги', id:'services'}, {title:'Мастер-классы', id:'classes'}, {title:'Контакты', id:'contacts'}]
+header.header
+  a.header-logo(href="/")
+    img(src="img/Logo.svg" alt="High Pass")
+  nav.nav#nav
+    button.header-burger#burgerBtn(type="button")
+      span.header-burger-line
+    .nav-menu
+      button.header-burger-close#burgerBtnClose(type="button")
+      ul.nav-list
+        each val in nav
+          li.nav-list-item
+            a.nav-list-link(href="#" + val.id)= val.title
+      a.header-phone.menu(href="tel:+749542423532") +7 (495) 42-423-532
+        svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+          use(xlink:href="img/sprite.svg#header--phone")
+  ul.header-networks
+    each val in ['instagram','fb','vk']
+      li.header-networks-item
+        a.header-networks-link(href="#")
+          svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+            use(xlink:href="img/sprite.svg#" + val)
+  .header-bottom
+    .container.header-bottom-container
+      a.header-phone(href="tel:+749542423532") +7 (495) 42-423-532
+        svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+          use(xlink:href="img/sprite.svg#header--phone")
+      form.header-search#searchForm(action="#")
+        button.header-search-btn#searchOpen(type="button")
+        input.header-search-input(type="search" name="search" placeholder="Что будем иcкать?")
+        button.header-search-close#searchClose(type="button")

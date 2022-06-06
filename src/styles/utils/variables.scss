@@ -1,0 +1,31 @@
+// sizes
+
+$sizes: (
+  "xs": 460px,
+  "sm": 670px,
+  "md": 940px,
+  "lg": 1024px,
+  "xl": 1200px,
+);
+
+// colors
+
+$mainColor: #ff6e30;
+$extraColor: #202020;
+$errorColor: #f06666;
+
+$mainFontColor: #ffffff;
+$extraFontColor: #cacaca;
+$informationFontColor: #999999;
+
+$hoverColor: $mainColor;
+$focusColor: #bc572b;
+$focusLightColor: #ffd4c1;
+$activeColor: #ce4307;
+
+$promoColor: #fff500;
+
+// font-family
+
+$mainFont: "Roboto", sans-serif;
+$extraFont: "TTFirsNeue", sans-serif;

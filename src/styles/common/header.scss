@@ -1,0 +1,380 @@
+.header {
+  position: relative;
+  font-family: $extraFont;
+  display: grid;
+  align-items: center;
+
+  $widthPaddingColumn: calc((100% - 1290px) / 2 - 30px);
+  grid-template-columns: $widthPaddingColumn 294px auto 184px $widthPaddingColumn;
+  grid-template-rows: 80px 45px;
+  grid-template-areas:
+    ". logo nav networks ."
+    "bottom bottom bottom bottom bottom";
+  gap: 0 30px;
+  background-color: $extraColor;
+
+  @include media("xl") {
+    grid-template-columns: $widthPaddingColumn 184px auto 152px $widthPaddingColumn;
+  }
+
+  @include media("md") {
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas:
+      "logo auto bottom"
+      "nav nav nav";
+    gap: 0;
+  }
+
+  @include media("sm") {
+    grid-template-rows: 70px 45px;
+    grid-template-areas:
+      "logo auto bottom"
+      "nav nav bottom";
+  }
+  &-top {
+    background-color: $extraColor;
+
+    &-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: 25px;
+      padding-bottom: 20px;
+
+      @include media("xl") {
+        padding-bottom: 24px;
+      }
+
+      @include media("sm") {
+        padding-bottom: 23px;
+      }
+    }
+  }
+
+  &-logo {
+    grid-area: logo;
+
+    @include media("xl") {
+      margin-right: 0;
+    }
+
+    @include media("md") {
+      padding-left: 30px;
+    }
+
+    @include media("md") {
+      padding-left: 21px;
+    }
+
+    img {
+      width: 190px;
+
+      @include media("xl") {
+        width: 166px;
+      }
+
+      @include media("sm") {
+        width: 112px;
+      }
+    }
+  }
+
+  &-networks {
+    @include networks;
+    grid-area: networks;
+    justify-content: flex-end;
+
+    @include media("md") {
+      display: none;
+    }
+  }
+
+  &-bottom {
+    grid-area: bottom;
+    height: 100%;
+    background-color: #4a4a4a;
+
+    @include media("md") {
+      background-color: transparent;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      @include media("md") {
+        justify-content: flex-end;
+      }
+
+      @include media("sm") {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        padding: 0;
+      }
+    }
+  }
+
+  &-burger {
+    position: relative;
+    display: none;
+    border: none;
+    padding: 0;
+    width: 20px;
+    height: 18px;
+    background-color: transparent;
+
+    @include media("sm") {
+      display: block;
+    }
+
+    &-line,
+    &::before,
+    &::after {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background-color: #fff;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    &-line {
+      top: 8px;
+    }
+
+    &::after {
+      top: 16px;
+      width: 50%;
+    }
+
+    &-close {
+      @include btnClose;
+      position: relative;
+      display: none;
+      margin-bottom: 16px;
+      background-color: #808080;
+
+      .open & {
+        @include media("sm") {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &-phone {
+    @include phone;
+    font-weight: 700;
+
+    &.menu {
+      display: none;
+    }
+
+    @include media("xl") {
+      color: $mainColor;
+    }
+
+    @include media("md") {
+      margin-right: 35px;
+    }
+
+    @include media("sm") {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 45px;
+      width: 100%;
+      margin: auto 0 0 auto;
+      padding-right: 21px;
+      font-size: 14px;
+      font-weight: 400;
+      background-color: #4a4a4a;
+
+      &.menu {
+        display: block;
+        height: auto;
+        margin: auto 0 0;
+        background-color: transparent;
+
+        svg {
+          top: 0;
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+
+    svg {
+      left: -1px;
+      top: 2px;
+      @include media("xl") {
+        fill: $mainColor;
+      }
+
+      @include media("sm") {
+        top: 14px;
+        right: 156px;
+        left: auto;
+      }
+    }
+  }
+
+  &-search {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+
+    @include media("md") {
+      margin-left: 0;
+      padding-left: 0;
+
+      &.open {
+        position: absolute;
+        justify-content: flex-end;
+        align-items: center;
+        height: 80px;
+        background: $extraColor;
+      }
+    }
+
+    @include media("sm") {
+      height: 70px;
+      align-items: center;
+      padding-right: 21px;
+      padding-left: 21px;
+
+      &.open {
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 70px;
+        padding: 0 21px;
+        background-color: $extraColor;
+      }
+    }
+
+    &-close {
+      @include btnClose;
+      position: relative;
+      display: none;
+      min-width: 23px;
+      height: 23px;
+      background-color: $mainColor;
+
+      &::before,
+      &::after {
+        top: 11px;
+        left: 5px;
+        width: 14px;
+      }
+
+      @include media("md") {
+        .open & {
+          display: block;
+        }
+      }
+
+      @include media("sm") {
+        min-width: 18px;
+        height: 18px;
+        background-color: #c4c4c4;
+
+        &::after,
+        &::before {
+          top: 9px;
+          left: 4px;
+          width: 10px;
+        }
+      }
+    }
+
+    &-btn {
+      display: block;
+      border: none;
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+      padding: 0;
+      @include background-image(
+        "../img/header/search.svg",
+        center,
+        100%,
+        transparent
+      );
+
+      @include media("md") {
+        width: 26px;
+        height: 26px;
+        margin-right: 0;
+
+        .open & {
+          display: none;
+        }
+      }
+
+      @include media("sm") {
+        width: 22px;
+        height: 20px;
+      }
+    }
+
+    &-input {
+      border: none;
+      border-bottom: 1px solid #e9e9e9;
+      width: 170px;
+      padding: 0;
+      font-size: 14px;
+      color: #e9e9e9;
+      background-color: transparent;
+      @include transition(border);
+
+      &::placeholder {
+        color: #e9e9e9;
+      }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: $hoverColor;
+      }
+
+      &:active {
+        border-color: $activeColor;
+      }
+
+      @include media("xl") {
+        width: 197px;
+        font-size: 16px;
+      }
+
+      @include media("md") {
+        display: none;
+        .open & {
+          display: block;
+          width: 308px;
+          margin-right: 11px;
+        }
+      }
+
+      @include media("sm") {
+        .open & {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@import "../includes/nav";

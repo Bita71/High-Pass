@@ -1,0 +1,82 @@
+section.services#services
+  .container.services-container.main
+    .services-left
+      h2.services-title Услуги студии
+      .services-choose
+        button.services-choose-btn.main.active(data-id='main') Основной перечень
+        button.services-choose-btn.extra(data-id='extra') Услуги по ретуши
+      - var servicesMain = [{img:'main/1.jpg',title:'Высокий уровень вовлечения', description:'Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.'},{img:'main/2.jpg',title:'Диаграммы связей', description:'Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий влечет за собой процесс.'},{img:'main/3.jpg',title:'Высокотехнологичная концепция', description:'В частности, убеждённость некоторых оппонентов способствует подготовке и реализации анализа существующих паттернов.'},{img:'main/4.jpg',title:'Сложившаяся структура организации', description:'Кстати,  сторонники тоталитаризма в науке будут объединены в целые кластеры себе подобных.'},{img:'main/5.jpg',title:'Внутренние резервы и ресурсы', description:'Банальные, но неопровержимые выводы, а также ключевые особенности структуры проекта являются только методом.'}]
+      - var servicesPath = 'img/services/';
+      - var servicesPath1024 = servicesPath + '1024/';
+      - var servicesPath768 = servicesPath + '768/';
+      - var servicesPath320 =servicesPath + '320/';
+      ul.services-left-list.main
+        each el in servicesMain
+          li.services-left-item
+            .services-left-item-img
+              picture
+                source(srcset=servicesPath320 + el.img media="(max-width: 500px)")
+                source(srcset=servicesPath768 + el.img media="(max-width: 900px)")
+                source(srcset=servicesPath1024 + el.img media="(max-width: 1200px)")
+                source(srcset=servicesPath + el.img)
+                img(src=servicesPath + el.img, alt=el.title)
+            .services-left-item-content
+              a.services-left-item-title(href="#")= el.title
+              p.services-left-item-text= el.description
+              a.services-left-item-link(href="#") Подробнее
+                <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3431 0.92888L18.7071 6.29284C19.0976 6.68336 19.0976 7.31653 18.7071 7.70705L12.3431 13.071C11.9526 13.4615 11.3195 13.4615 10.9289 13.071C10.5384 12.6805 10.5384 12.0473 10.9289 11.6568L15.5858 7.99995H1C0.447715 7.99995 0 7.55223 0 6.99995C0 6.44766 0.447715 5.99995 1 5.99995H15.5858L10.9289 2.34309C10.5384 1.95257 10.5384 1.3194 10.9289 0.92888C11.3195 0.538355 11.9526 0.538355 12.3431 0.92888Z" fill="#FF6E30"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" fill="#FF6E30"/>
+                </svg>
+      - var servicesExtra = [{img:'extra/1.jpg',title:'Принимая во внимание показатели'},{img:'extra/2.jpg',title:'Таким образом, выбранный нами...'},{img:'extra/3.jpg',title:'Также как высокое качество...'},{img:'extra/4.jpg',title:'Безусловно, семантический разбор...'},{img:'extra/5.jpg',title:'Внезапно, предприниматели в интернете...'},{img:'extra/6.jpg',title:'Есть над чем подумать: активные...'},{img:'extra/7.jpg',title:'Сделанные на базе аналитики выводы...'},{img:'extra/8.jpg',title:'Как принято считать, сторонники...'},{img:'extra/9.jpg',title:'Задача организации, в особенности...'},{img:'extra/10.jpg',title:'Активно развивающиеся страны...'}]
+      ul.services-left-list.extra
+        each el in servicesExtra
+          li.services-left-item
+            .services-left-item-img
+              picture
+                source(srcset=servicesPath320 + el.img media="(max-width: 500px)")
+                source(srcset=servicesPath768 + el.img media="(max-width: 900px)")
+                source(srcset=servicesPath1024 + el.img media="(max-width: 1200px)")
+                source(srcset=servicesPath + el.img)
+                img(src=servicesPath + el.img, alt=el.title)
+            .services-left-item-content
+              a.services-left-item-title(href="#")= el.title
+              a.services-left-item-link(href="#") Подробнее
+                <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3431 0.92888L18.7071 6.29284C19.0976 6.68336 19.0976 7.31653 18.7071 7.70705L12.3431 13.071C11.9526 13.4615 11.3195 13.4615 10.9289 13.071C10.5384 12.6805 10.5384 12.0473 10.9289 11.6568L15.5858 7.99995H1C0.447715 7.99995 0 7.55223 0 6.99995C0 6.44766 0.447715 5.99995 1 5.99995H15.5858L10.9289 2.34309C10.5384 1.95257 10.5384 1.3194 10.9289 0.92888C11.3195 0.538355 11.9526 0.538355 12.3431 0.92888Z" fill="#FF6E30"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" fill="#FF6E30"/>
+                </svg>
+    .services-right
+      .services-promo
+        .services-promo-top
+          .services-promo-top-content
+            h2.services-promo-top-title Акция!
+            p.services-promo-top-text Только в июне
+          img.services-promo-top-img(src="img/services/discount.svg", alt="-20%")
+        .services-promo-bottom
+          p.services-promo-bottom-text 1,5 часа портретной съемки + ретушь 10 снимков
+          button.services-promo-bottom-btn Узнать больше
+      .services-complited
+        h3.services-complited-title Выполненные работы
+        - var complitedMain = ['main-completed/1.jpg','main-completed/2.jpg','main-completed/3.jpg','main-completed/4.jpg','main-completed/5.jpg','main-completed/6.jpg','main-completed/7.jpg','main-completed/8.jpg','main-completed/9.jpg','main-completed/10.jpg','main-completed/11.jpg','main-completed/12.jpg','main-completed/13.jpg','main-completed/14.jpg','main-completed/15.jpg','main-completed/16.jpg',]
+        ul.services-complited-works.main
+          each path in complitedMain
+            li.services-complited-works-item
+              picture
+                source(srcset=servicesPath320 + path media="(max-width: 500px)")
+                source(srcset=servicesPath768 + path media="(max-width: 900px)")
+                source(srcset=servicesPath1024 + path media="(max-width: 1200px)")
+                source(srcset=servicesPath + path)
+                img.services-complited-works-img(src=servicesPath + path alt="")
+        - var complitedExtra = ['extra-completed/1.jpg','extra-completed/2.jpg','extra-completed/3.jpg','extra-completed/4.jpg','extra-completed/5.jpg','extra-completed/6.jpg','extra-completed/7.jpg','extra-completed/8.jpg','extra-completed/9.jpg','extra-completed/10.jpg','extra-completed/11.jpg','extra-completed/12.jpg','extra-completed/13.jpg','extra-completed/14.jpg','extra-completed/15.jpg','extra-completed/16.jpg',]
+        ul.services-complited-works.extra
+          each path in complitedExtra
+            li.services-complited-works-item
+              picture
+                source(srcset=servicesPath320 + path media="(max-width: 500px)")
+                source(srcset=servicesPath768 + path media="(max-width: 900px)")
+                source(srcset=servicesPath1024 + path media="(max-width: 1200px)")
+                source(srcset=servicesPath + path)
+                img.services-complited-works-img(src=servicesPath + path alt="")
+
+

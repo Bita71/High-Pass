@@ -1,0 +1,141 @@
+.about {
+  color: $mainFontColor;
+  background-color: $extraColor;
+
+  &-container {
+    padding-top: 30px;
+
+    @include media("xl") {
+      padding-bottom: 125px;
+    }
+
+    @include media("md") {
+      padding-bottom: 63px;
+    }
+
+    @include media("sm") {
+      padding-top: 32px;
+      padding-bottom: 59px;
+    }
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include media("sm") {
+      grid-template-columns: 1fr;
+      gap: 23px;
+    }
+  }
+  &-title {
+    @include mainTitle;
+    margin-bottom: 8px;
+    color: $mainFontColor;
+
+    @include media("md") {
+      margin-bottom: 2px;
+    }
+  }
+
+  &-text {
+    line-height: 28px;
+    color: $extraFontColor;
+
+    @include media("xl") {
+      word-spacing: 2px;
+    }
+
+    @include media("md") {
+      padding-top: 2px;
+      word-spacing: 0;
+    }
+
+    @include media("sm") {
+      line-height: 25px;
+    }
+  }
+
+  &-subscribe {
+    display: flex;
+    flex-direction: column;
+
+    &-img {
+      height: 255px;
+      margin-bottom: 22px;
+      @include background-image("../img/about/Rectangle 17.jpg", center, cover);
+
+      @include media("xl") {
+        height: 330px;
+        margin-bottom: 21px;
+        background-image: url("../img/about/1024/Rectangle 17.jpg");
+      }
+
+      @include media("md") {
+        height: 569px;
+        background-image: url("../img/about/768/Rectangle 17.jpg");
+      }
+
+      @include media("sm") {
+        height: 278px;
+        margin-bottom: 26px;
+        background-image: url("../img/about/320/Rectangle 17.jpg");
+      }
+    }
+
+    &-title {
+      @include title;
+      display: flex;
+      margin-bottom: 13px;
+      font-size: 24px;
+      font-weight: 400;
+      color: $mainFontColor;
+
+      @include media("xl") {
+        margin-bottom: 15px;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      @include media("lg") {
+        flex-wrap: wrap;
+      }
+      @include media("sm") {
+        flex-direction: column;
+      }
+    }
+
+    &-label {
+      @include label-input;
+      margin-right: 30px;
+
+      @include media("lg") {
+        max-width: 342px;
+        margin-right: 0;
+        margin-bottom: 22px;
+      }
+
+      @include media("lg") {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-input {
+      @include input;
+      border: 1px solid #4a4a4a;
+      color: $extraFontColor;
+      background-color: #4a4a4a;
+    }
+
+    &-error {
+      @include input-error;
+    }
+
+    &-btn {
+      @include btn;
+      width: max-content;
+    }
+  }
+}

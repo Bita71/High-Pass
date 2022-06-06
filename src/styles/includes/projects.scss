@@ -1,0 +1,318 @@
+.projects {
+  &-container {
+    position: relative;
+    padding-bottom: 42px;
+
+    @include media("xs") {
+      padding-top: 32px;
+      padding-bottom: 35px;
+    }
+  }
+
+  &-title {
+    @include mainTitle;
+    margin-bottom: 15px;
+
+    @include media("md") {
+      margin-bottom: 11px;
+    }
+
+    @include media("xs") {
+      margin-bottom: 16px;
+    }
+  }
+  &-works {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 300px;
+
+    grid-auto-flow: dense;
+    gap: 30px;
+
+    @include media("xl") {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 27px 30px;
+    }
+
+    @include media("md") {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 28px 30px;
+    }
+
+    @include media("sm") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media("xs") {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      gap: 29px;
+    }
+
+    &-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      picture {
+        height: 184px;
+        margin-bottom: 18px;
+      }
+    }
+
+    .close {
+      display: none;
+    }
+
+    &-small {
+      grid-column: 2 span;
+
+      @include media("sm") {
+        grid-column: auto;
+      }
+
+      @include media("xs") {
+        height: 273px;
+
+        .projects-works-date {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-medium {
+      grid-column: 3 span;
+
+      @include media("sm") {
+        grid-column: auto;
+      }
+
+      @include media("xs") {
+        height: 295px;
+      }
+
+      .projects-works-date {
+        margin-bottom: -2px;
+        padding-left: 18px;
+      }
+
+      .projects-works-calender {
+        top: -3px;
+        left: 0;
+      }
+    }
+
+    &-big {
+      color: $mainFontColor;
+      grid-column: 6 span;
+
+      @include media("xl") {
+        grid-column: 5 span;
+      }
+
+      @include media("md") {
+        grid-column: 6 span;
+      }
+
+      @include media("sm") {
+        grid-column: 2 span;
+      }
+
+      @include media("xs") {
+        grid-column: auto;
+        height: 422px;
+      }
+
+      picture {
+        position: relative;
+        height: 300px;
+        margin-bottom: 0;
+
+        @include media("xs") {
+          height: 100%;
+        }
+      }
+
+      &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        max-width: 355px;
+        height: 100%;
+        padding: 27px 30px 30px;
+
+        @include media("xs") {
+          justify-content: flex-end;
+        }
+      }
+
+      &-btn {
+        @include btn;
+        width: max-content;
+        margin-top: auto;
+        background-color: transparent;
+
+        @include media("xs") {
+          margin-top: 14px;
+        }
+        &:hover {
+          background-color: $mainColor;
+          border-color: $mainColor;
+        }
+
+        &:focus {
+          background-color: $focusColor;
+          border-color: $mainColor;
+        }
+
+        &:active {
+          background-color: $activeColor;
+          border-color: $activeColor;
+        }
+      }
+    }
+
+    &-hashtag {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      padding: 6px 14px;
+      font-size: 14px;
+      color: $mainFontColor;
+      background-color: #333333;
+
+      @include media("xs") {
+        top: 5px;
+        right: 5px;
+        padding: 5px 14px 4px 15px;
+        font-size: 12px;
+      }
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      color: $extraColor;
+      @include overflow(63px);
+
+      &-big {
+        margin-bottom: 4px;
+        font-family: $extraFont;
+        font-size: 24px;
+        line-height: 25px;
+
+        @include media("xs") {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    &-description {
+      @include media("xs") {
+        line-height: 19px;
+      }
+    }
+
+    &-date {
+      position: relative;
+      margin-top: auto;
+      margin-bottom: 5px;
+      padding-left: 17px;
+      font-size: 12px;
+      color: $informationFontColor;
+      @include background-image('../img/calendar-gray.svg', left center, auto,transparent);
+      &-big {
+        margin-top: 0;
+        color: $mainFontColor;
+        background-image: url('../img/calendar.svg');
+
+        @include media("xs") {
+          margin-bottom: 9px;
+        }
+      }
+    }
+
+
+  }
+
+  &-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    @include media("sm") {
+      position: absolute;
+      top: 31px;
+      right: 21px;
+      margin-top: 0;
+    }
+
+    &-item {
+      margin: 0 15px;
+
+      @include media("md") {
+        margin: 0 10px;
+      }
+
+      @include media("sm") {
+        margin: 0;
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+
+      &-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        width: 30px;
+        height: 30px;
+        color: #223444;
+        background-color: #c4c4c4;
+        cursor: pointer;
+
+        @include media("sm") {
+          width: 24px;
+          height: 24px;
+          font-size: 12px;
+        }
+
+        @include transition(background-color, color);
+
+        &:hover {
+          color: $mainColor;
+          background-color: #e9e9e9;
+        }
+        &:focus {
+          color: #223444;
+          background-color: $focusLightColor;
+        }
+        &:active {
+          color: $mainFontColor;
+          background-color: $mainColor;
+        }
+
+        &.active,
+        &.active:hover,
+        &.active:active,
+        &.active:focus {
+          cursor: default;
+          color: $mainFontColor;
+          background-color: $mainColor;
+        }
+
+        .mousedown &.active {
+          color: #223444;
+          background-color: #c4c4c4;
+        }
+      }
+    }
+  }
+}

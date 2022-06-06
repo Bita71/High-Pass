@@ -1,0 +1,39 @@
+section.hero
+  .container.hero-container
+    h1.visually-hidden High pass
+    .hero-main-photo
+      .hero-hashtag #мастеркласс
+      .hero-content
+        p.hero-text Мастер-класс от Игоря Робова
+        h2.hero-main-photo-title Неоновый фотосет 2.0 <time datetime="2021-07-07 20:00">7 июля 20:00</time>
+        a.hero-btn(href="#") Узнать больше
+    h2.hero-works-title Работы участников предыдущего мастер-класса
+    - var heroImgPath = 'img/hero/';
+    - var heroPath1024 = heroImgPath + '1024/';
+    - var heroPath768 = heroImgPath + '768/';
+    - var heroPath320 =heroImgPath + '320/';
+    .hero-works-photo.big
+      picture
+        - var namePhoto1 = '2.jpg'
+        source(srcset=heroPath320 + namePhoto1 media="(max-width: 500px)")
+        source(srcset=heroPath768 + namePhoto1 media="(max-width: 900px)")
+        source(srcset=heroPath1024 + namePhoto1 media="(max-width: 1200px)")
+        source(srcset=heroImgPath + namePhoto1)
+        img(src=heroImgPath + namePhoto1 alt="Photo hero 1")
+    .hero-works-photo
+      picture
+        - var namePhoto2 = '3.jpg'
+        source(srcset=heroPath320 + namePhoto2 media="(max-width: 500px)")
+        source(srcset=heroPath768 + namePhoto2 media="(max-width: 900px)")
+        source(srcset=heroPath1024 + namePhoto2 media="(max-width: 1200px)")
+        source(srcset=heroImgPath + namePhoto2)
+        img(src=heroImgPath + namePhoto2 alt="Photo hero 2")
+    .hero-works-photo
+      picture
+        - var namePhoto3 = '4.jpg'
+        source(srcset=heroPath320 + namePhoto3 media="(max-width: 500px)")
+        source(srcset=heroPath768 + namePhoto3 media="(max-width: 900px)")
+        source(srcset=heroPath1024 + namePhoto3 media="(max-width: 1200px)")
+        source(srcset=heroImgPath + namePhoto3)
+        img(src=heroImgPath + namePhoto3 alt="Photo hero 3")
+
